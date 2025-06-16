@@ -16,7 +16,8 @@ export default class extends Controller {
     const agora = new Date()
     let diferenca = agora - dataInicial
     console.log(agora)
-
+    console.log(dataInicial)
+    
     if (diferenca < 0) {
       this.contadorTarget.textContent = "Data futura"
       return
