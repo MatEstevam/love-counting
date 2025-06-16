@@ -259,7 +259,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   nokogiri (= 1.15)
-  pg
+  pg (~> 1.5)
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
   selenium-webdriver
