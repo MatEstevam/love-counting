@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gem update --system 3.3.22
