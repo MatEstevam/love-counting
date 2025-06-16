@@ -71,8 +71,4 @@ group :test do
   gem "selenium-webdriver"
 end
 
-source 'https://rubygems.org'
-
-ruby '3.1.2'
-
-gem 'nokogiri', '1.18.8', platforms: [:ruby]
+gem "nokogiri", "~> 1.18.8", platforms: [:ruby]

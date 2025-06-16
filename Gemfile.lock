@@ -288,7 +288,7 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   jbuilder
   jsbundling-rails
-  nokogiri (= 1.18.8)
+  nokogiri (~> 1.18.8)
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
   selenium-webdriver
