@@ -70,3 +70,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "nokogiri", "1.18.8", platforms: :ruby
