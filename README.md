@@ -25,15 +25,15 @@ Site romântico feito como um projeto pessoal para comemorar o relacionamento, a
 .
 ├── app
 │   ├── views/
-│   │   └── layouts/application.html.erb   # HEAD com CSS/JS/fontes, meta tags
-│   ├── controllers/                       # controllers Rails
-│   └── javascript/controllers/            # Stimulus: carousel e contador
-├── app/assets/stylesheets/               # Tailwind e ajustes CSS
+│   │   └── layouts/application.html.erb
+│   ├── controllers/
+│   └── javascript/controllers/
+├── app/assets/stylesheets/
 ├── config/
 │   └── tailwind.config.js
-├── public/                               # assets compilados (Heroku deploy)
-├── Gemfile.lock                          # dependências Rails
-└── README.md                             # este arquivo 😊
+├── public/
+├── Gemfile.lock
+└── README.md
 
 
 ## ⚙️ Funcionalidades
