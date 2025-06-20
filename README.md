@@ -20,21 +20,6 @@ Site romântico feito como um projeto pessoal para comemorar o relacionamento, a
 - **Font Awesome** — ícones (WhatsApp).
 - **Heroku** — deployment contínuo.
 
-## 📂 Estrutura do Projeto
-
-├── app
-│   ├── views/
-│   │   └── layouts/application.html.erb
-│   ├── controllers/
-│   └── javascript/controllers/
-├── app/assets/stylesheets/
-├── config/
-│   └── tailwind.config.js
-├── public/
-├── Gemfile.lock
-└── README.md
-
-
 ## ⚙️ Funcionalidades
 
 - **Contador de dias:** calcula automaticamente o número de dias desde `24/08/2024`.
