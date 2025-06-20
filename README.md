@@ -22,17 +22,16 @@ Site romântico feito como um projeto pessoal para comemorar o relacionamento, a
 
 ## 📂 Estrutura do Projeto
 
-.
 ├── app
 │   ├── views/
-│   │   └── layouts/application.html.erb   
-│   ├── controllers/                    
-│   └── javascript/controllers/        
-├── app/assets/stylesheets/            
+│   │   └── layouts/application.html.erb
+│   ├── controllers/
+│   └── javascript/controllers/
+├── app/assets/stylesheets/
 ├── config/
 │   └── tailwind.config.js
-├── public/                            
-├── Gemfile.lock          
+├── public/
+├── Gemfile.lock
 └── README.md
 
 
