@@ -4,9 +4,8 @@ export default class extends Controller {
   static targets = ["container"]
 
   connect() {
-    this.slideIndex = 1 // Começa do primeiro slide real (após o clone do último)
+    this.slideIndex = 1
     this.totalSlides = this.containerTarget.children.length
-    this.slideWidth = this.containerTarget.offsetWidth / this.totalSlides
 
     this.goToSlide(this.slideIndex, false)
 
@@ -14,12 +13,12 @@ export default class extends Controller {
     this.startX = 0
     this.currentX = 0
 
-    // Touch events
-    this.containerTarget.addEventListener("touchstart", this.startDrag.bind(this))
-    this.containerTarget.addEventListener("touchmove", this.onDrag.bind(this))
+    // Touch
+    this.containerTarget.addEventListener("touchstart", this.startDrag.bind(this), { passive: true })
+    this.containerTarget.addEventListener("touchmove", this.onDrag.bind(this), { passive: false })
     this.containerTarget.addEventListener("touchend", this.endDrag.bind(this))
 
-    // Mouse events
+    // Mouse
     this.containerTarget.addEventListener("mousedown", this.startDrag.bind(this))
     this.containerTarget.addEventListener("mousemove", this.onDrag.bind(this))
     this.containerTarget.addEventListener("mouseup", this.endDrag.bind(this))
@@ -28,7 +27,7 @@ export default class extends Controller {
 
   goToSlide(index, animated = true) {
     const offset = -(index * 100)
-    this.containerTarget.style.transition = animated ? "transform 0.5s ease-in-out" : "none"
+    this.containerTarget.style.transition = animated ? "transform 0.4s ease-in-out" : "none"
     this.containerTarget.style.transform = `translateX(${offset}%)`
     this.slideIndex = index
   }
@@ -51,17 +50,26 @@ export default class extends Controller {
 
   onDrag(event) {
     if (!this.isDragging) return
-    this.currentX = event.touches ? event.touches[0].clientX : event.clientX
-    const diffX = this.currentX - this.startX
-    const offsetPercent = (diffX / this.containerTarget.offsetWidth) * 100
+
+    const currentX = event.touches ? event.touches[0].clientX : event.clientX
+    const diffX = currentX - this.startX
+
+    // Impede o scroll da página
+    if (event.cancelable) event.preventDefault()
+
+    const containerWidth = this.containerTarget.offsetWidth
+    const offsetPercent = (diffX / containerWidth) * 100
     const offset = -(this.slideIndex * 100) + offsetPercent
+
     this.containerTarget.style.transform = `translateX(${offset}%)`
   }
 
-  endDrag() {
+  endDrag(event) {
     if (!this.isDragging) return
     this.isDragging = false
-    const diff = this.currentX - this.startX
+
+    const endX = event.changedTouches ? event.changedTouches[0].clientX : event.clientX
+    const diff = endX - this.startX
 
     if (diff > 50) {
       this.prevSlide()
@@ -71,22 +79,20 @@ export default class extends Controller {
       this.goToSlide(this.slideIndex)
     }
 
-    // Corrige loop (pós-transição)
-    setTimeout(() => this.fixLoop(), 510)
+    // Corrige looping após a transição
+    setTimeout(() => this.fixLoop(), 410)
   }
 
   fixLoop() {
     if (this.slideIndex === this.totalSlides - 1) {
-      // Se estiver no clone do primeiro, volta para o primeiro real
       this.goToSlide(1, false)
     } else if (this.slideIndex === 0) {
-      // Se estiver no clone do último, volta para o último real
       this.goToSlide(this.totalSlides - 2, false)
     }
   }
 
   showSlide(event) {
     const index = parseInt(event.currentTarget.dataset.index)
-    this.goToSlide(index + 1) // +1 pois o slide real começa no índice 1
+    this.goToSlide(index + 1)
   }
 }
