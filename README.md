@@ -7,7 +7,7 @@ Site romântico feito como um projeto pessoal para comemorar o relacionamento, a
 **Love Counting** é um site estático criado com **Ruby on Rails** e **JavaScript** para exibir:
 
 - Contador regressivo e contador de dias desde o início do relacionamento.
-- Carrossel infinito com fotos (suporte a mouse e touch).
+- Carrossel infinito com fotos.
 - Botão flutuante para WhatsApp.
 - Música incorporada via Spotify.
 - Layout responsivo com estilo clean, moderno e mobile-first.
@@ -19,22 +19,6 @@ Site romântico feito como um projeto pessoal para comemorar o relacionamento, a
 - **Tailwind CSS** — estilo utilitário, responsivo e leve.
 - **Font Awesome** — ícones (WhatsApp).
 - **Heroku** — deployment contínuo.
-
-## 📂 Estrutura do Projeto
-
-.
-├── app
-│   ├── views/
-│   │   └── layouts/application.html.erb
-│   ├── controllers/
-│   └── javascript/controllers/
-├── app/assets/stylesheets/
-├── config/
-│   └── tailwind.config.js
-├── public/
-├── Gemfile.lock
-└── README.md
-
 
 ## ⚙️ Funcionalidades
 
