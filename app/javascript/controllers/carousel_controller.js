@@ -31,7 +31,15 @@ export default class extends Controller {
     this.containerTarget.style.transition = animated ? "transform 0.5s ease-in-out" : "none"
     this.containerTarget.style.transform = `translateX(${offset}%)`
     this.slideIndex = index
+
+    // Atualiza indicadores
+    const realIndex = (index - 1 + (this.totalSlides - 2)) % (this.totalSlides - 2) // Ajusta para índice real (ignorando clones)
+    document.querySelectorAll(".carousel-indicator").forEach((btn, i) => {
+      btn.classList.toggle("bg-white", i === realIndex)
+      btn.classList.toggle("bg-white/50", i !== realIndex)
+    })
   }
+
 
   nextSlide() {
     if (this.slideIndex >= this.totalSlides - 1) return
