@@ -39,7 +39,7 @@
 
 
  <!-- Nomes -->
-  <p class="text-2xl font-semibold my-2 text-red-800">Isabelli & Matheus</p>
+  <p class="text-2xl font-semibold my-4 text-red-800">Isabelli & Matheus</p>
 
   <!-- Data do início -->
   <p class="text-lg text-red-600 mb-4">Desde 24 de agosto de 2024</p>
@@ -55,25 +55,21 @@
 
 
   <!-- Mensagem poética -->
-  <% frases = [
-    "Entre todas as voltas que o mundo dá, a melhor foi quando ele me trouxe até você. Nosso amor não tem ponto final — só vírgulas para continuarmos escrevendo juntos.",
-    "Entre milhões de sorrisos, o seu é o meu favorito.",
-    "Se a vida é feita de instantes, que os meus sejam ao teu lado.",
-    "Você é o detalhe que fez tudo mudar.",
-   "A gente nem precisa de um plano — só um sofá, risadas e você perto já bastam.",
-   "Você é tipo meme bom: aparece e meu dia melhora na hora."
-  ] %>
-
-  <blockquote class="italic text-red-700 max-w-xl mx-auto mb-4 px-4">
-    “<%= frases.sample %>”
-    <button
-      class="p-2"
-      onclick="location.reload()"
+  <div data-controller="frase">
+    <blockquote
+      data-frase-target="texto"
+      class="italic text-red-700 max-w-xl mx-auto mb-2 px-4 text-lg md:text-xl font-semibold text-center"
     >
-    <i class="fa-solid fa-rotate-right"></i>
-    </button>
-  </blockquote>
+      “Te amo, te amo, te amo.”
+    </blockquote>
 
+    <button
+      data-action="frase#trocar"
+      class="mt-4 text-sm bg-yellow-800 hover:bg-yellow-600 text-white font-short py-1.5 px-3 rounded-full shadow-sm flex items-center gap-2 mx-auto"
+    >
+      🫶 Mais amor, por favor.
+    </button>
+  </div>
 
   <!-- Música Spotify Embed -->
   <div class="w-full max-w-xs mx-auto mb-4 p-4">
