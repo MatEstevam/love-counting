@@ -45,5 +45,5 @@ git clone https://github.com/MatEstevam/count_love.git
 cd count_love
 bundle install
 yarn install
-rails db:migrate   # (não há DB ativo, mas o passo está incluído)
+rails db:migrate   # (ainda não há DB ativo, mas o passo está incluído, caso haja atualizações futuras)
 rails s
